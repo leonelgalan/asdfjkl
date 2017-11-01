@@ -4,7 +4,8 @@
   "description": "Determines if text contains gibberish.",
   "main": "lib/asdfjkl.js",
   "scripts": {
-    "test": "eslint . && npm run compile && mocha --require babel-register",
+    "lint": "eslint .",
+    "test": "npm run lint && npm run compile && mocha --require babel-register",
     "compile": "babel --presets es2015,stage-0 -d lib/ src/ && chmod +x lib/cli.js",
     "prepublish": "npm run compile"
   },
