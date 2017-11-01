@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint && npm run compile && mocha --require babel-register",
-    "compile": "babel --presets es2015,stage-0 -d lib/ src/ && chmod +x lib/cli.js",
+    "compile": "babel --presets es2015,stage-0 -d lib/ src/ && echo '{}' > lib/model.json && chmod +x lib/cli.js && lib/cli.js --train",
     "prepublish": "npm run compile"
   },
   "bin": {

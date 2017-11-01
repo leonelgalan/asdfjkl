@@ -3,7 +3,7 @@ import fs from 'fs'
 import modelData from './model.json'
 
 const encoding = 'utf8'
-const defaultTrainingFileName = './lib/big.txt'
+const defaultTrainingFileName = './data/big.txt'
 const modelFileName = './lib/model.json'
 const acceptedChars = 'abcdefghijklmnopqrstuvwxyz '
 const pos = _.fromPairs(acceptedChars.split('').map((char, i) => [char, i]))
@@ -50,8 +50,8 @@ export function train (trainingFileName = defaultTrainingFileName) {
     })
   })
 
-  let good = _.map(readLines('./lib/good.txt'), (line) => averageTransitionProbability(line, matrix))
-  let bad = _.map(readLines('./lib/bad.txt'), (line) => averageTransitionProbability(line, matrix))
+  let good = _.map(readLines('./data/good.txt'), (line) => averageTransitionProbability(line, matrix))
+  let bad = _.map(readLines('./data/bad.txt'), (line) => averageTransitionProbability(line, matrix))
 
   console.assert(_.min(good) > _.max(bad), 'Good Model')
 
