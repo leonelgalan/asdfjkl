@@ -1,13 +1,13 @@
 {
   "name": "asdfjkl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Determines if text contains gibberish.",
   "main": "lib/asdfjkl.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && npm run compile && mocha --require babel-register",
-    "compile": "babel --presets es2015,stage-0 -d lib/ src/ && echo '{}' > lib/model.json && chmod +x lib/cli.js && lib/cli.js --train",
-    "prepublish": "npm run compile"
+    "test": "npm run lint && npm run compile && mocha --require babel-core/register",
+    "compile": "babel --presets env,stage-0 -d lib/ src/ && echo '{}' > lib/model.json && chmod +x lib/cli.js && lib/cli.js --train",
+    "prepare": "npm run compile"
   },
   "bin": {
     "asdfjkl": "lib/cli.js"
@@ -26,15 +26,16 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.10.0",
-    "eslint-config-standard": "^10.2.1",
+    "eslint": "^5.14.1",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^4.0.1"
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.0.1"
   },
   "dependencies": {
     "commander": "^2.11.0",

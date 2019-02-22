@@ -8,14 +8,14 @@ describe('asdfjkl', () => {
   const properEnglish = 'Hello World!'
 
   it(`should detect gibberish in "${gibberish}"`, () => {
-    assert.equal(
+    assert.strictEqual(
       asdfjkl(gibberish),
       true
     )
   })
 
   it(`shouldn't detect gibberish in "${properEnglish}"`, () => {
-    assert.equal(
+    assert.strictEqual(
       asdfjkl(properEnglish),
       false
     )
