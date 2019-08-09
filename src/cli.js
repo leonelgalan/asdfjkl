@@ -19,6 +19,6 @@ if (program.train) {
 
 if (program.try) {
   const text = program.try
-  let result = asdfjkl(text)
+  const result = asdfjkl(text)
   console.log(`Result for "${text}": ${result}`)
 }

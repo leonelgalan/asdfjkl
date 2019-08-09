@@ -1,12 +1,12 @@
 {
   "name": "asdfjkl",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Determines if text contains gibberish.",
   "main": "lib/asdfjkl.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && npm run compile && mocha --require babel-core/register",
-    "compile": "babel --presets env,stage-0 -d lib/ src/ && echo '{}' > lib/model.json && chmod +x lib/cli.js && lib/cli.js --train",
+    "test": "npm run lint && npm run compile && mocha --require @babel/register",
+    "compile": "babel -d lib/ src/ && echo '{}' > lib/model.json && chmod +x lib/cli.js && lib/cli.js --train",
     "prepare": "npm run compile"
   },
   "bin": {
@@ -25,20 +25,21 @@
   "author": "Leonel Galán <leonelgalan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^5.14.1",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^6.0.1"
+    "mocha": "^6.2.0"
   },
   "dependencies": {
-    "commander": "^2.11.0",
-    "lodash": "^4.17.4"
+    "commander": "^3.0.0",
+    "core-js": "^3.2.0",
+    "lodash": "^4.17.15"
   }
 }

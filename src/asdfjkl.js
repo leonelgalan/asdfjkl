@@ -9,12 +9,12 @@ const acceptedChars = 'abcdefghijklmnopqrstuvwxyz '
 const pos = _.fromPairs(acceptedChars.split('').map((char, i) => [char, i]))
 
 const normalize = (line) => {
-  let lowerCaseChars = _.map(line.split(''), _.toLower)
+  const lowerCaseChars = _.map(line.split(''), _.toLower)
   return _.filter(lowerCaseChars, (char) => _.includes(acceptedChars, char))
 }
 
 const ngram = (n, line, iteratee) => {
-  let filtered = normalize(line)
+  const filtered = normalize(line)
   for (let start = 0; start <= filtered.length - n; start++) {
     iteratee(...filtered.slice(start, start + n))
   }
@@ -35,29 +35,29 @@ export function averageTransitionProbability (line, probabilityMatrix) {
 }
 
 export function train (trainingFileName = defaultTrainingFileName) {
-  let k = acceptedChars.length
-  let matrix = [...Array(k)].map(() => [...Array(k)].map(() => 10))
+  const k = acceptedChars.length
+  const matrix = [...Array(k)].map(() => [...Array(k)].map(() => 10))
 
-  let lines = readLines(trainingFileName)
+  const lines = readLines(trainingFileName)
   lines.forEach((line) => {
     ngram(2, line, (a, b) => { matrix[pos[a]][pos[b]] += 1 })
   })
 
   matrix.forEach((row, i) => {
-    let rowSum = _.sum(row)
+    const rowSum = _.sum(row)
     _.range(row.length).forEach((j) => {
       matrix[i][j] = Math.log(row[j] / rowSum)
     })
   })
 
-  let good = _.map(readLines('./data/good.txt'), (line) => averageTransitionProbability(line, matrix))
-  let bad = _.map(readLines('./data/bad.txt'), (line) => averageTransitionProbability(line, matrix))
+  const good = _.map(readLines('./data/good.txt'), (line) => averageTransitionProbability(line, matrix))
+  const bad = _.map(readLines('./data/bad.txt'), (line) => averageTransitionProbability(line, matrix))
 
   console.assert(_.min(good) > _.max(bad), 'Good Model')
 
-  let threshold = (_.min(good) + _.max(bad)) / 2
+  const threshold = (_.min(good) + _.max(bad)) / 2
 
-  let content = JSON.stringify({ matrix, threshold })
+  const content = JSON.stringify({ matrix, threshold })
   fs.writeFileSync(modelFileName, content, encoding)
 }
 
