@@ -1,6 +1,6 @@
 {
   "name": "asdfjkl",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Determines if text contains gibberish.",
   "main": "lib/asdfjkl.js",
   "scripts": {
