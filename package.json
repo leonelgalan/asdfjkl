@@ -41,5 +41,6 @@
     "commander": "^3.0.0",
     "core-js": "^3.2.0",
     "lodash": "^4.17.15"
-  }
+  },
+  "runkitExampleFilename": "runkit.js"
 }
