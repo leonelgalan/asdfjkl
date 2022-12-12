@@ -8,17 +8,19 @@ program
   .version(pjson.version)
   .option('-T, --train [fileName]', 'Train the model with your own file')
   .option('-t, --try <text>', 'Text to try Asdfjkl')
-  .parse(process.argv)
 
-if (!program.train && !program.try) program.help()
+program.parse(process.argv)
+const options = program.opts()
 
-if (program.train) {
-  const flagOrFileName = program.train
+if (!options.train && !options.try) program.help()
+
+if (options.train) {
+  const flagOrFileName = options.train
   flagOrFileName === true ? train() : train(flagOrFileName)
 }
 
-if (program.try) {
-  const text = program.try
+if (options.try) {
+  const text = options.try
   const result = asdfjkl(text)
   console.log(`Result for "${text}": ${result}`)
 }

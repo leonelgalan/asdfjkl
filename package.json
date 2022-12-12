@@ -1,6 +1,6 @@
 {
   "name": "asdfjkl",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Determines if text contains gibberish.",
   "main": "lib/asdfjkl.js",
   "scripts": {
@@ -12,6 +12,9 @@
   "bin": {
     "asdfjkl": "lib/cli.js"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leonelgalan/asdfjkl.git"
@@ -25,22 +28,21 @@
   "author": "Leonel Galán <leonelgalan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/register": "^7.5.5",
-    "eslint": "^6.1.0",
-    "eslint-config-standard": "^13.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.18.9",
+    "eslint": "^8.29.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.2.0"
   },
   "dependencies": {
-    "commander": "^3.0.0",
-    "core-js": "^3.2.0",
-    "lodash": "^4.17.15"
+    "commander": "^9.4.1",
+    "core-js": "^3.26.1",
+    "lodash": "^4.17.21"
   },
   "runkitExampleFilename": "runkit.js"
 }
