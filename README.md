@@ -1,6 +1,6 @@
 # asdfjkl
 
-[![Build Status](https://travis-ci.org/leonelgalan/asdfjkl.svg)](https://travis-ci.org/leonelgalan/asdfjkl)
+[![Node CI](https://github.com/leonelgalan/asdfjkl/actions/workflows/nodejs.yml/badge.svg)](https://github.com/leonelgalan/asdfjkl/actions/workflows/nodejs.yml)
 [![npm Version](https://badge.fury.io/js/asdfjkl.svg)](http://badge.fury.io/js/asdfjkl)
 
 Determines if text contains gibberish. Based on Rob Neuhaus's [Gibberish-Detector](https://github.com/rrenaud/Gibberish-Detector) (Python), inspired in the [PHP](https://github.com/buggedcom/Gibberish-Detector-PHP) and [Ruby](https://github.com/mchitten/gibberish_detector) ports.
